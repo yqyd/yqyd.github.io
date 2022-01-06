@@ -68,7 +68,6 @@ body {
   background-color: var(--color-background);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: url("http://api.btstu.cn/sjbz/?lx=fengjing");
 }
 body a {
   color: var(--color-text);
