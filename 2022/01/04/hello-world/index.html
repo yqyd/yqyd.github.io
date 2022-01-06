@@ -240,6 +240,30 @@
     <div class="btn" id="comments-btn">查看评论</div>
   
   
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk" class="gitalk"></div>
+<script defer src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  window.onload = function () {
+    var gitalk = new Gitalk({
+      clientID: '4ee1273a44265476dc12',
+      clientSecret: '221275f36ebb3681711e8fb75694de5086b3f30e',
+      id: window.location.pathname,
+      repo: 'yqyd.github.io',
+      owner: 'yqyd',
+      admin: 'yqyd'
+    });
+    if ( true ) {
+      $("#comments-btn").on("click", function () {
+        $(this).hide();
+        gitalk.render('gitalk');
+      });
+    } else {
+      gitalk.render('gitalk');
+    }
+  }
+</script>
+
 </section>
       
     </section>
