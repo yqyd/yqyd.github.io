@@ -6,12 +6,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>About me - 张东良的个人博客</title>
+  <title>js的事件循环机制 - 张东良的个人博客</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
-  
-  <meta name="description" content="张东良的个人博客，个人博客，blog">
+  <meta name="keywords" content=", JavaScript , 防抖 , 节流">
+  <meta name="description" content="123456789101112131415161718...">
   <meta name="author" content="zdl">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -150,7 +150,7 @@
       
       
     </div>
-    <div class="center">About me</div>
+    <div class="center">js的事件循环机制</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -176,7 +176,7 @@
       </li><li class="menu-item">
         <a href="/categories/ " class="underline "> 分类</a>
       </li><li class="menu-item">
-        <a href="/about/ " class="underline active"> 关于</a>
+        <a href="/about/ " class="underline "> 关于</a>
       </li></ul>
     
       <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
@@ -192,32 +192,39 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">About me</h1>
+    <h1 class="head-title">js的事件循环机制</h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 06, 2022</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 07, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>287</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>848</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         
-        <h2 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a><strong>Projects</strong></h2><p><a target="_blank" rel="noopener" href="https://gitee.com/z_dl/wx_bill">用于记账的微信小程序</a>   </p>
-<p>根据收入支出进行分类记账，统计当月账单 年度账单。<br>&nbsp;</p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/z_dl/netease-music">在线音乐网站</a>    </p>
-<p>使用了网易云音乐后台接口，实现账户登录 歌曲搜索 歌曲播放 歌单播放等功能   </p>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a><strong>Contact</strong></h2><p>E-Mail: <a href="mailto:&#100;&#108;&#x69;&#97;&#110;&#x67;&#x5f;&#x7a;&#x35;&#50;&#55;&#x40;&#x31;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#100;&#108;&#x69;&#97;&#110;&#x67;&#x5f;&#x7a;&#x35;&#50;&#55;&#x40;&#x31;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>   </p>
-<p>WeChat: L791290185  </p>
-<p>QQ: 791290185  </p>
-<p>Gitee: @zdl   </p>
-
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 一段时间内没执行再点击重新计时   防抖</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">debounce</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> cleat;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>) </span>&#123;<br>        <span class="hljs-built_in">clearTimeout</span>(cleat);<br>        cleat = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-built_in">console</span>.log(i);<br>        &#125;, <span class="hljs-number">1000</span>)<br>    &#125;<br>&#125;<br><span class="hljs-keyword">var</span> retfun = debounce();<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;myBtn&quot;</span>).addEventListener(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>&#123;<br>    retfun(e.target.value);<br>&#125;);<br><br><br><br><br><span class="hljs-comment">//一段时间内多次点击只计一次  节流</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">thro</span>(<span class="hljs-params">func</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> timeout;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-keyword">if</span> (!timeout) &#123;<br>            timeout = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>                func();<br>                timeout = <span class="hljs-literal">null</span>;<br>            &#125;, <span class="hljs-number">1000</span>)<br>        &#125;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Math</span>.random());<br>&#125;<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;btn&#x27;</span>).onclick = thro(handle)<br></code></pre></td></tr></table></figure>
       </section>
       <section class="extra">
         
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>zdl</li>
+    <li><strong>本文链接：</strong><a href="https://yqyd.github.io/2022/01/07/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/index.html" title="https:&#x2F;&#x2F;yqyd.github.io&#x2F;2022&#x2F;01&#x2F;07&#x2F;%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81&#x2F;index.html">https:&#x2F;&#x2F;yqyd.github.io&#x2F;2022&#x2F;01&#x2F;07&#x2F;%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
         
         
         
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%82%E6%B5%81/" rel="tag">节流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%B2%E6%8A%96/" rel="tag">防抖</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/01/07/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/">js的事件循环机制<i class="iconfont iconright"></i></a>
+  </nav>
+
       </section>
       
         <section class="comments">
@@ -257,6 +264,11 @@
       <div class="col-xl-3">
         
           
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    
+  </aside>
+
         
       </div>
     </div>
