@@ -6,12 +6,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>About me - 张东良的个人博客</title>
+  <title>git的常用命令 - 张东良的个人博客</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
-  
-  <meta name="description" content="张东良的个人博客，个人博客，blog">
+  <meta name="keywords" content=", git , git命令 , 工具">
+  <meta name="description" content="git
+ssh:  C:\users\zdl.ssh
+...">
   <meta name="author" content="zdl">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -150,7 +152,7 @@
       
       
     </div>
-    <div class="center">About me</div>
+    <div class="center">git的常用命令</div>
     <div class="right">
       <i class="iconfont iconmenu j-navbar-menu"></i>
     </div>
@@ -176,7 +178,7 @@
       </li><li class="menu-item">
         <a href="/categories/ " class="underline "> 分类</a>
       </li><li class="menu-item">
-        <a href="/about/ " class="underline active"> 关于</a>
+        <a href="/about/ " class="underline "> 关于</a>
       </li></ul>
     
       <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
@@ -190,34 +192,136 @@
       <div class="col-xl-6"><article class="article">
   <div class="wrap">
     <section class="head">
-  <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <img   class="lazyload" data-original="/imgs/git-title.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">About me</h1>
+    <h1 class="head-title">git的常用命令</h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 06, 2022</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 07, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>285</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1639</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         
-        <h2 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a><strong>Projects</strong></h2><p><a target="_blank" rel="noopener" href="https://gitee.com/z_dl/wx_bill">用于记账的微信小程序</a>   </p>
-<p>根据收入支出进行分类记账，统计当月账单 年度账单。<br>&nbsp;</p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/z_dl/netease-music">在线音乐网站</a>    </p>
-<p>使用了网易云音乐后台接口，实现账户登录 歌曲搜索 歌曲播放 歌单播放等功能   </p>
-<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a><strong>Contact</strong></h2><p>E-Mail: <a href="mailto:&#100;&#108;&#105;&#97;&#x6e;&#x67;&#95;&#x7a;&#x35;&#50;&#x37;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;">&#100;&#108;&#105;&#97;&#x6e;&#x67;&#95;&#x7a;&#x35;&#50;&#x37;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;</a>   </p>
-<p>WeChat: L791290185  </p>
-<p>QQ: 791290185  </p>
-<p>Gitee: @zdl   </p>
+        <h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><ul>
+<li><p>ssh:  <font color="#FF6347">C:\users\zdl.ssh</font></p>
+<ul>
+<li>创建ssh： <font color="#FF6347">ssh-keygen -t -C ‘邮箱地址’ </font></li>
+<li>测试ssh：<font color="#FF6347">ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;</a></font></li>
+<li>注意：上面创建语句完成后会让你输入密码，直接回车，不然以后提交的时候每次都会让你输入密码</li>
+</ul>
+</li>
+<li><p><font color="#FF6347">git init </font>初始化仓库</p>
+</li>
+<li><p><font color="#FF6347">git status </font>查看仓库状态</p>
+</li>
+<li><p><font color="#FF6347">git add ‘文件名’ </font>向暂存区添加文件，如果添加所有文件，’文件名’=&gt;*</p>
+</li>
+<li><p><font color="#FF6347">git commit -m ‘text’</font></p>
+<ul>
+<li>提交，其中text为提交描述</li>
+<li>直接<font color="#FF6347">git commit </font>会进入到详细的编辑界面（第一行简介，第二行空行，第三行详情）</li>
+</ul>
+</li>
+<li><p><font color="#FF6347">git log </font>提交日志</p>
+<ul>
+<li>后缀 <ul>
+<li><font color="#FF6347">–pretty = short</font>只显示概要</li>
+<li><font color="#FF6347">目录名/文件名 </font>只显示该目录或该文件下的记录</li>
+<li><font color="#FF6347">-p </font>显示改动</li>
+<li><font color="#FF6347">-p </font>文件名 显示该文件的改动</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><font color="#FF6347">git diff </font>显示区别</p>
+<ul>
+<li><font color="#FF6347">git diff HEAD </font>本次与上次的区别</li>
+</ul>
+</li>
+<li><p><font color="#FF6347">git branch </font>显示所有分支</p>
+<ul>
+<li><font color="#FF6347">git checkout -b name </font>创建name分支并进入，等于下面两步<ul>
+<li><font color="#FF6347">git branch name</font></li>
+<li><font color="#FF6347">git checkout name</font></li>
+</ul>
+</li>
+<li><font color="#FF6347">git checkout - </font>切换回上一个分支（最好做一件事就创建一个分支，保证代码无误再合并到主分支，保障主分支随时可用）</li>
+</ul>
+</li>
+<li><p>分支合并 </p>
+<ul>
+<li><font color="#FF6347">git checkout ‘合并到的分支’</font></li>
+<li><font color="#FF6347">git merge –no–ff ‘合并后消失的分支名’</font></li>
+<li><font color="#FF6347">git log –praph </font>图标形式提交日志</li>
+</ul>
+</li>
+<li><p><font color="#FF6347">git reset –hard ‘哈希值’ </font>回溯历史版本</p>
+</li>
+<li><p><font color="#FF6347">git reflog </font>操作日志</p>
+</li>
+<li><p>查看冲突并解决 git merge后提示有冲突 此时冲突文件会被修改，进入文件改成想要的样子，然后再git add ， git commit ，即可</p>
+</li>
+<li><p><font color="#FF6347">git commit –amend </font>修改上一条提交信息</p>
+</li>
+<li><p>压缩历史</p>
+<ul>
+<li><font color="#FF6347">git commit -am </font>一次性进暂存然后提交 <ul>
+<li>注：修改名称为typo例：fix typo</li>
+</ul>
+</li>
+<li><font color="#FF6347">git rebase -i HEAD~2 </font>合并两次最新提交</li>
+<li>进入编辑器</li>
+<li>pick 7a34294 Add feature-C</li>
+<li>pick ofba227 Fix typo 将typo -&gt; fixup<br>然后保存 -&gt; ok</li>
+</ul>
+</li>
+<li><p>添加远程仓库 </p>
+<ul>
+<li><font color="#FF6347">git remote add origin ‘网址’</font></li>
+<li><font color="#FF6347">git push -u origin master   </font><br>(将当前分支推送到origin远端的master分支 若master不存在会自动创建master分支)</li>
+<li><font color="#FF6347">git clone ‘网址’ </font>克隆仓库</li>
+<li><font color="#FF6347">git branch -a </font>同时显示本地和远端的分支</li>
+<li><font color="#FF6347">git checkout -b feature-D origin/feature-D   </font><br>(新建本地feature-D分支并将远端的feature-D同步过来)</li>
+</ul>
+</li>
+<li><p><font color="#FF6347">git fetch </font>与 <font color="#FF6347">git pull</font>的区别 </p>
+<ul>
+<li><font color="#FF6347">git pull = git fetch + git margin</font></li>
+</ul>
+</li>
+<li><p>删除分支</p>
+<ul>
+<li><font color="#FF6347">git branch -D ‘分支名’ </font></li>
+</ul>
+</li>
+<li><p>总结</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript">git checkout -b &lt;name&gt; <span class="hljs-comment">//创建分支</span><br>coding...<br>git commit -m <span class="hljs-string">&#x27;&lt;content&gt;&#x27;</span> <span class="hljs-comment">//提交</span><br>git pushd -u origin &lt;name&gt;  <span class="hljs-comment">//推远端</span><br>web -&gt; pr<br>git branch -d &lt;name&gt;  <span class="hljs-comment">//删除本地</span><br>git push origin --<span class="hljs-keyword">delete</span> &lt;name&gt; <span class="hljs-comment">//删除远端</span><br></code></pre></td></tr></table></figure></li>
+</ul>
 
       </section>
       <section class="extra">
         
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>zdl</li>
+    <li><strong>本文链接：</strong><a href="https://yqyd.github.io/2022/01/07/git%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html" title="https:&#x2F;&#x2F;yqyd.github.io&#x2F;2022&#x2F;01&#x2F;07&#x2F;git%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&#x2F;index.html">https:&#x2F;&#x2F;yqyd.github.io&#x2F;2022&#x2F;01&#x2F;07&#x2F;git%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
         
         
         
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git%E5%91%BD%E4%BB%A4/" rel="tag">git命令</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2022/01/07/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">防抖节流<i class="iconfont iconright"></i></a>
+  </nav>
+
       </section>
       
         <section class="comments">
@@ -257,6 +361,11 @@
       <div class="col-xl-3">
         
           
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-text">git</span></a></li></ol>
+  </aside>
+
         
       </div>
     </div>
