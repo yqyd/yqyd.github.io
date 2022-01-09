@@ -206,15 +206,15 @@
         
         <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文只为学习笔记，并非教程</p>
 <h2 id="一、块级绑定"><a href="#一、块级绑定" class="headerlink" title="一、块级绑定"></a>一、块级绑定</h2><h3 id="var声明和变量提升"><a href="#var声明和变量提升" class="headerlink" title="var声明和变量提升"></a>var声明和变量提升</h3><p>  <code>变量提升</code>是指使用var声明的变量，不论其实际声明在何处，都会被视作声明于所在函数（或全局作用域）的顶部。</p>
-<h3 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h3><p>  let声明：</p>
+<h3 id="let声明"><a href="#let声明" class="headerlink" title="let声明"></a>let声明</h3><p>  <code>let声明</code>：</p>
 <ul>
 <li>会将作用域限制在当前代码块内</li>
-<li>let声明不会被提升到当前代码块的顶部<br>禁止重复声明: 如果一个标识符已经在代码块的内部被定义，那么在此代码块内使用同一个标识符进行let声明会抛出错误  </li>
+<li><code>let声明</code>不会被提升到当前代码块的顶部<br>禁止重复声明: 如果一个标识符已经在代码块的内部被定义，那么在此代码块内使用同一个标识符进行let声明会抛出错误  </li>
 </ul>
 <h3 id="常量声明"><a href="#常量声明" class="headerlink" title="常量声明"></a>常量声明</h3><ul>
-<li>使用const声明常量</li>
+<li>使用<code>const声明</code>常量</li>
 <li>值被设置后不能再被改变</li>
-<li>所有的const变量都需要在声明时被初始化    </li>
+<li>所有的<code>const</code>变量都需要在声明时被初始化    </li>
 <li><code>const声明</code>与<code>let声明</code>对比：    <ul>
 <li><code>const声明</code>与<code>let声明</code>都是块级声明</li>
 <li><code>const声明</code>在同一作用域内定义一个已有变量时会抛出错误，无论此前时变量是由<code>var声明</code>的还是<code>let声明</code>的</li>
