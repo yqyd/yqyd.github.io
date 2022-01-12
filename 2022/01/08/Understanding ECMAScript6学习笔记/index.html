@@ -197,7 +197,7 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>一月 08, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>7960</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>7959</span>
     </div>
   </div>
 </section>
@@ -349,9 +349,9 @@
 <p><code>箭头函数</code>的语法：</p>
 <ul>
 <li>单个参数可省略括号</li>
-<li>若没有任何参数则要写一个花括号</li>
+<li>若没有任何参数则要写一个括号</li>
 </ul>
-<h3 id="立即调用函数表达式"><a href="#立即调用函数表达式" class="headerlink" title="立即调用函数表达式"></a>立即调用函数表达式</h3><p><code>立即调用函数表达式（IIFE）</code>，语序定义一个匿名函数并在未保存引用的情况下立刻调用它。当你想创建一个作用域并隔离在程序其他部分外，这种模式会很有用。</p>
+<h3 id="立即调用函数表达式"><a href="#立即调用函数表达式" class="headerlink" title="立即调用函数表达式"></a>立即调用函数表达式</h3><p><code>立即调用函数表达式（IIFE）</code>，允许定义一个匿名函数并在未保存引用的情况下立刻调用它。当你想创建一个作用域并隔离在程序其他部分外，这种模式会很有用。</p>
 <h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p>函数在<code>ES6</code>中并未经历巨大变化， 然而一系列增量改进使得函数更易使用。<br>在特定参数未被传入时， 函数的默认参数允许你更容易指定需要使用的值。 而在 <code>ES6 </code>之前，这要求在函数内使用一些额外代码， 以便检查参数是已否提供并为其分配一个不同的值。剩余参数允许你将余下的所有参数放入指定数组。 使用真正的数组并让你指定哪些参数需要被包含， 使得剩余参数成为比 <code>arguments </code>更为灵活的解决方案。<br>扩展运算符是剩余参数的好伙伴， 允许在调用函数时将数组解构为分离的参数。 在<code>ES6</code>之前， 要把数组的元素作为独立参数传给函数只有两种办法： 手动指定每一个参数， 或者使用<code>apply()</code> 方法。 有了扩展运算符， 你就能轻易将数组传递给函数而无须担心该函数的 <code>this</code>绑定。<br>新增的 name 属性能帮你在调试与执行方面更容易地识别函数。 此外，<code>ES6</code>正式定义了块级函数的行为， 因此在严格模式下它们不再是语法错误。在 <code>ES6</code> 中， 函数的行为被 <code>[[Call]]</code> 与 <code>[[Construct]] </code>方法所定义， 前者对应普通的函数执行， 后者则对应着使用了<code>new</code>的调用。 <code>new.target</code> 元属性也能用于判断函数被调用时是否使用了 <code>new </code>。<br><code>ES6 </code>函数的最大变化就是增加了箭头函数。 箭头函数被设计用于替代匿名函数表达式， 它拥有更简洁的语法、 词法级的 this 绑定， 并且没有<code>arguments</code>对象。 此外， 箭头函数不能修改它们的 <code>this </code>绑定， 因此不能被用作构造器。</p>
 <p>尾调用优化允许某些函数的调用被优化， 以保持更小的调用栈、 使用更少的内存， 并防止堆栈溢出。 当能进行安全优化时， 它会由引擎自动应用。 不过你可以考虑重写递归函数， 以便能够利用这种优化。</p>
 
