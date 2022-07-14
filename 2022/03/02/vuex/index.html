@@ -196,15 +196,98 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>三月 02, 2022</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>204</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>3771</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         
-        <h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>vue中组件之间共享数据的方式<br>父向子传值：v-bind属性绑定<br>子向父传值：v-on事件绑定<br>兄弟组件之间共享数据：EvnetBus<br>    * $on   接受数据的那个组件<br>    * $emit 发送数据的那个组件<br>上述方式只适合在小范围内的数据共享，如果要进行大范围的组件间数据共享，可以使用vuex。</p>
+        <h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>vue中组件之间共享数据的方式<br>父向子传值：v-bind属性绑定<br>子向父传值：v-on事件绑定<br>兄弟组件之间共享数据：EvnetBus</p>
+<pre><code>* $on   接受数据的那个组件
+* $emit 发送数据的那个组件
+上述方式只适合在小范围内的数据共享，如果要进行大范围的组件间数据共享，可以使用vuex。
+</code></pre>
 <h4 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h4><p>vuex是实现组件全局状态（数据）管理的一种机制，可以方便的实现组件之间数据的共享。</p>
+<h4 id="使用vuex统一管理状态的好处"><a href="#使用vuex统一管理状态的好处" class="headerlink" title="使用vuex统一管理状态的好处"></a>使用vuex统一管理状态的好处</h4><ol>
+<li>能够在vuex中集中管理共享的数据，易于开发和后期维护</li>
+<li>能够高效地实现组件之间的数据共享，提高开发效率</li>
+<li>存储在vuex中的数据时响应式的，能够实时保持数据与页面的同步<h4 id="什么样的数据适合存储到vuex中"><a href="#什么样的数据适合存储到vuex中" class="headerlink" title="什么样的数据适合存储到vuex中"></a>什么样的数据适合存储到vuex中</h4>一般情况下只有组件之间共享的数据，才有必要存储到vuex中；对于组件的私有数据，依旧存储在组件自身的data中。 <h4 id="vuex的基本使用"><a href="#vuex的基本使用" class="headerlink" title="vuex的基本使用"></a>vuex的基本使用</h4></li>
+<li>安装vuex依赖包<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install vuex <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure></li>
+<li>导入vue包<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br>Vux.use(Vuex)<br></code></pre></td></tr></table></figure></li>
+<li>创建store对象<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pf"><span class="hljs-keyword">const</span> store = new Vuex.Store(&#123;<br>	//<span class="hljs-keyword">state</span> 中存放的就是全局共享的数据<br>	<span class="hljs-keyword">state</span>：&#123;count：<span class="hljs-number">0</span>&#125;<br>&#125;)<br></code></pre></td></tr></table></figure></li>
+<li>将store对象挂载到vue实例中<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">new</span> Vue(&#123;<br>	<span class="hljs-attr">el</span>:<span class="hljs-string">&#x27;#vue&#x27;</span>,<br>	<span class="hljs-attr">render</span>: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(app),<br>	router,<br>	<span class="hljs-comment">//将创建的共享数据对象，挂载到vue实例中</span><br>	<span class="hljs-comment">//所有的组件，就可以直接从store中获取全局数据了</span><br>	store<br>&#125;)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="vuex的核心概念"><a href="#vuex的核心概念" class="headerlink" title="vuex的核心概念"></a>vuex的核心概念</h4><p>vuex的主要核心概念如下</p>
+<ul>
+<li> state</li>
+<li>mutation</li>
+<li>action</li>
+<li>getter</li>
+</ul>
+<p><strong>state</strong></p>
+<p>state提供唯一的公共数据源，所有共享的数据都要统一放到store的state中进行存储</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//创建store数据源，提供唯一公共数据</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store(&#123;<br>    <span class="hljs-attr">state</span>: &#123;<span class="hljs-attr">count</span>: <span class="hljs-number">0</span>&#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>组件中访问state中数据的第一种方式：</p>
+<p>this.$store.state.全局数据名称</p>
+<p>组件访问state中数据的第二种方式:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//1.从vuex中按需导入mapState函数</span><br><span class="hljs-keyword">import</span> &#123;mapState&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//2.将全局数据，映射为当前组件的计算属性</span><br>computed：&#123;<br>    ...mapState([<span class="hljs-string">&#x27;count&#x27;</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>Mutation</strong></p>
+<p>Mutation用于变更Store中的数据</p>
+<p>（1）.只能通过mutation变更store数据，不可以直接操作store中的数据</p>
+<p>（2）.通过这种方式虽然操作起来繁琐一些，但是可以集中监控所有数据的变化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//定义mutation</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store(&#123;<br>    <span class="hljs-attr">state</span>:&#123;<br>        <span class="hljs-attr">count</span>: <span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-attr">mutations</span>:&#123;<br>        <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">state</span>)</span>&#123;<br>            <span class="hljs-comment">//变更状态</span><br>            state.count++<br>        &#125;<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//触发mutation</span><br>methods：&#123;<br>	<span class="hljs-function"><span class="hljs-title">handle1</span>(<span class="hljs-params"></span>)</span>&#123;<br>		<span class="hljs-comment">//触发mutations的第一种方式</span><br>		<span class="hljs-built_in">this</span>.$store.commit(<span class="hljs-string">&#x27;add&#x27;</span>)<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以在触发mutation时传递参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//定义mutation</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vuex.Store(&#123;<br>    <span class="hljs-attr">state</span>: &#123;<br>        <span class="hljs-attr">count</span>: <span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-attr">mutations</span>: &#123;<br>        <span class="hljs-function"><span class="hljs-title">addN</span>(<span class="hljs-params">state, step</span>)</span>&#123;<br>            <span class="hljs-comment">//变更状态</span><br>            state.count += step<br>        &#125;<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//触发mutation</span><br><span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-function"><span class="hljs-title">handle2</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-comment">//在调用commit函数</span><br>        <span class="hljs-comment">//触发mutation时携带参数</span><br>        <span class="hljs-built_in">this</span>.$store.commit(<span class="hljs-string">&#x27;addN&#x27;</span>, <span class="hljs-number">3</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>this.$store.commit()是触发mutations的第一种方式，触发mutations的第二种方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//1.从vuex中按需导入mapMutations函数</span><br><span class="hljs-keyword">import</span> &#123; mapMutations &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>通过刚才导入的mapMutaions函数，映射为当前组件的methods方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//2.将指定的mutations函数，映射为当前组件的methods函数</span><br><span class="hljs-attr">methods</span>: &#123;<br>    ...mapMutations([<span class="hljs-string">&#x27;add&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>action</strong></p>
+<p>Action用于处理异步任务</p>
+<p>如果通过异步操作变更数据，必须通过Action，而不能使用Mutation，但是在Action中还是要通过触发Mutation的方式间接变更数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//定义action</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> Vxe.store(&#123;<br>    <span class="hljs-comment">//..省略其他代码</span><br>    <span class="hljs-attr">mutations</span>:&#123;<br>        <span class="hljs-function"><span class="hljs-title">add</span>(<span class="hljs-params">state</span>)</span>&#123;<br>            state.count++<br>        &#125;<br>    &#125;,<br>    <span class="hljs-attr">actions</span>:&#123;<br>        <span class="hljs-function"><span class="hljs-title">addAsync</span>(<span class="hljs-params">context</span>)</span>&#123;<br>            <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>                context.commit(<span class="hljs-string">&#x27;add&#x27;</span>)<br>            &#125;)<br>        &#125;<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//触发Action</span><br><span class="hljs-attr">methods</span>: &#123;<br>    <span class="hljs-function"><span class="hljs-title">handle</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-comment">//触发actions的第一种方式</span><br>        <span class="hljs-built_in">this</span>.$store.dispatch(<span class="hljs-string">&#x27;addAsync&#x27;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>this.$store.dispatch()是触发actions的第一种方式，触发actions第二种方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//1.从vuex中按需导入mapActions函数</span><br><span class="hljs-keyword">import</span> &#123; mapActions &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>通过刚才导入的mapActions函数，将需要的actions函数，映射为当前组件的methods方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">methods： &#123;<br>    ...mapActions ([<span class="hljs-string">&#x27;addAsync&#x27;</span>, <span class="hljs-string">&#x27;addNasync&#x27;</span>])<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>Getter</strong></p>
+<p>getter用于对store中的数据进行加工处理形成新的数据。</p>
+<ol>
+<li>getter可以对Store中已有的数据加工处理之后形成新的数据，类似vue的计算属性</li>
+<li>store中数据发生变化，getter的数据也会跟着变化</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//定义Getter</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-keyword">new</span> vue.Store(&#123;<br>    <span class="hljs-attr">state</span>: &#123;<br>        <span class="hljs-attr">count</span>: <span class="hljs-number">0</span><br>    &#125;,<br>    <span class="hljs-attr">getters</span>: &#123;<br>        <span class="hljs-attr">showNum</span>: <span class="hljs-function"><span class="hljs-params">state</span> =&gt;</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;当前最新的数量是&#x27;</span> + state.count<br>        &#125;<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>使用getters的第一种方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">this</span>.$store.getters.名称<br></code></pre></td></tr></table></figure>
+
+<p>使用getters的第二种方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123;mapGetters&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vuex&#x27;</span><br><br><span class="hljs-attr">computed</span>: &#123;<br>    ...mapGetters([<span class="hljs-string">&#x27;showNum&#x27;</span>])<br>&#125; <br></code></pre></td></tr></table></figure>
+
+
+
+
+
 
       </section>
       <section class="extra">
